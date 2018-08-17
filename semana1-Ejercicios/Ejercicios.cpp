@@ -49,22 +49,35 @@ void ListarEnPantalla(int*Arreglo, int *N)
 void BuscarMayor(int*Arreglo, int *N)
 {
 	int mayor;
-	int posicion;
-	for(int i=0; i<*N-1;i++)
-	{ 
-		for (int j=1;j<*N;j++)
+	int auxiliar;
+	int repeticiciones=0;
+	
+	for (int i = 0; i<*N; i++)
+	{
+		auxiliar = Arreglo[i];
+		for (int j = 0; j<*N; j++)
 		{
-			if (Arreglo[i]<Arreglo[j])
+			if (auxiliar <= Arreglo[j])
 			{
 				mayor = Arreglo[j];
-				posicion =j;
+				auxiliar = mayor;
 			}
 		}
 	}
 	cout << "El numero mayor es: " << endl;
-	cout << mayor;
-	cout << "Se encuentra en la posicion:" << endl;
-	cout << posicion;
+	cout << mayor << endl;
+	for (int i = 0; i<*N; i++)
+	{
+		if (mayor == Arreglo[i])
+		{
+			cout << "La posicion del mayor es:" << endl;
+			cout << i + 1;
+			cout << endl;
+			repeticiciones++;
+		}
+	}
+	cout << "El valor se repite " << repeticiciones << " veces" << endl;
+
 	_getch();
 }
 int main()
