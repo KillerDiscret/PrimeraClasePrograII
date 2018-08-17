@@ -52,26 +52,24 @@ void BuscarMayor(int*Arreglo, int *N)
 	int auxiliar;
 	int repeticiciones=0;
 	
-	for (int i = 0; i<*N; i++)
-	{
-		auxiliar = Arreglo[i];
-		for (int j = 0; j<*N; j++)
+		auxiliar = Arreglo[0];
+		for (int j=0; j<*N;j++)
 		{
-			if (auxiliar <= Arreglo[j])
+
+			if (auxiliar < Arreglo[j])
 			{
 				mayor = Arreglo[j];
 				auxiliar = mayor;
 			}
 		}
-	}
 	cout << "El numero mayor es: " << endl;
-	cout << mayor << endl;
-	for (int i = 0; i<*N; i++)
+	cout << mayor<<endl;
+	for (int i=0; i<*N;i++)
 	{
-		if (mayor == Arreglo[i])
+		if (mayor==Arreglo[i])
 		{
 			cout << "La posicion del mayor es:" << endl;
-			cout << i + 1;
+			cout<< i+1;
 			cout << endl;
 			repeticiciones++;
 		}
